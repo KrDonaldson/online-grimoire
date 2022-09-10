@@ -1,8 +1,26 @@
+/* * {
+    border: 1px solid red;
+} */
+html, body {
+    color: aliceblue;
+    background-color: #123E45;
+    background-image: linear-gradient(180deg, #000000 0%, #123E45 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    font-family: serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
 nav {
     background-color: black;
     height: 10vh;
 }
 
-.bkground-black {
+.black {
     background-color: black;
+}
+
+.home-nav-button {
+    background: rgba(199, 199, 199, 0.75);
+    color: black;
 }

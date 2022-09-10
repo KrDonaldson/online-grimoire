@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <a href="" class="navbar-brand order-1 order-lg-0 mx-lg-3">My Grimoire</a>
             <button 
-                class="navbar-toggler order-0 bkground-black" 
+                class="navbar-toggler order-0 black" 
                 type="button" 
                 data-bs-toggle="collapse" 
                 data-bs-target="#navMenu" 
@@ -24,7 +24,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse bkground-black" id="navMenu">
+            <div class="collapse navbar-collapse black" id="navMenu">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item mx-3">
                         <a href="#" class="nav-link">Dieties</a>
@@ -59,6 +59,9 @@
             </div> -->
         </div>
     </nav>
+
+    {% block content %}
+    {% endblock %}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
