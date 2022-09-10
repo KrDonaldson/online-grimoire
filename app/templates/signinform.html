@@ -1,0 +1,40 @@
+<div class="container col-lg-6">
+    <div class="">
+        <form method="POST">
+            <div class="mb-3">
+                <label>Username</label>
+                <input type="text" required 
+                    name="username" 
+                    value="{{username}}" 
+                    class="form-control">
+            </div>
+            <div class="mb-3">
+                <label>Password</label>
+                <input type="text" required 
+                    name="password" 
+                    value="{{password}}" 
+                    class="form-control">
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="text-danger font-weight-bold">
+            <ul class="list-unstyled">
+                <li>This is for example purposes</li>
+            {% for error in errors %}
+                <li >{{error}}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    
+        <div class="text-success font-weight-bold">
+            {% if msg %}
+            <div class="badge bg-success text-wrap font-weight-bold" style="font-size: large;">
+                {{msg}}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+

@@ -10,18 +10,6 @@ def home():
 def profile():
     return render_template('profile.html')
 
-@site.route('/signin')
-def signin():
-    return render_template('signin.html')
-
-@site.route('/signup')
-def signup():
-    return render_template('signup.html')
-
-@site.route('/signout')
-def signout():
-    return render_template('signout.html')
-
 @site.route('/ceremonies')
 def ceremonies():
     return render_template('ceremonies.html')
