@@ -11,6 +11,14 @@ html, body {
     font-family: serif, Verdana, Geneva, Tahoma, sans-serif;
 }
 
+h1 {
+    font-size: 8vw;
+}
+
+h2 {
+    font-size: 5vw;
+}
+
 nav {
     background-color: black;
     height: 10vh;
@@ -23,4 +31,9 @@ nav {
 .home-nav-button {
     background: rgba(199, 199, 199, 0.75);
     color: black;
+}
+
+#user-aspirations {
+    border: 1px solid rgb(199, 199, 199);
+    height: 60vh;
 }
