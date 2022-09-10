@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a href="" class="navbar-brand order-1 order-lg-0 mx-lg-3">My Grimoire</a>
+            <a href="{{ url_for('site.home') }}" class="navbar-brand order-1 order-lg-0 mx-lg-3">My Grimoire</a>
             <button 
                 class="navbar-toggler order-0 black" 
                 type="button" 
@@ -27,36 +27,36 @@
             <div class="collapse navbar-collapse black" id="navMenu">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item mx-3">
-                        <a href="#" class="nav-link">Dieties</a>
+                        <a href="{{ url_for('site.dieties') }}" class="nav-link">Dieties</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="#" class="nav-link">Herbs</a>
+                        <a href="{{ url_for('site.herbs') }}" class="nav-link">Herbs</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="#" class="nav-link">Spells</a>
+                        <a href="{{ url_for('site.spells') }}" class="nav-link">Spells</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="#" class="nav-link">Holidays</a>
+                        <a href="{{ url_for('site.holidays') }}" class="nav-link">Holidays</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="#" class="nav-link">Ceremonies</a>
+                        <a href="{{ url_for('site.ceremonies') }}" class="nav-link">Ceremonies</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="#" class="nav-link">Tools</a>
+                        <a href="{{ url_for('site.tools') }}" class="nav-link">Tools</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="#" class="nav-link">Symbols</a>
+                        <a href="{{ url_for('site.symbols') }}" class="nav-link">Symbols</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="#" class="nav-link">Journal</a>
+                        <a href="{{ url_for('site.journal') }}" class="nav-link">Journal</a>
                     </li>
                 </ul>
             </div>
-            <a href="#" class="navbar-brand order-2 mx-lg-3">Me</a>
-            <!-- <div class="order-2">
-                <a href="#" class="navbar-brand mx-lg-3">Sign In</a>
-                <a href="#" class="navbar-brand mx-lg-3">Sign Up</a>
-            </div> -->
+            <a href="{{ url_for('site.profile') }}" class="navbar-brand order-2 mx-lg-3">Me</a>
+            <div class="order-2">
+                <a href="{{ url_for('site.signin') }}" class="navbar-brand mx-lg-3">Sign In</a>
+                <a href="{{ url_for('site.signup') }}" class="navbar-brand mx-lg-3">Sign Up</a>
+            </div>
         </div>
     </nav>
 

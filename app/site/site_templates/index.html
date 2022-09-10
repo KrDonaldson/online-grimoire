@@ -19,14 +19,38 @@
     </div>
     <div class="m-lg-5">
         <div class="row col-md-8 gap-3 mx-auto">
-            <button class="col-md-4 btn-lg mx-auto home-nav-button">Dieties</button>
-            <button class="col-md-4 btn-lg mx-auto home-nav-button">Holidays</button>
-            <button class="col-md-4 btn-lg mx-auto home-nav-button">Ceremonies</button>
-            <button class="col-md-4 btn-lg mx-auto home-nav-button">Symbols</button>
-            <button class="col-md-4 btn-lg mx-auto home-nav-button">Herbs</button>
-            <button class="col-md-4 btn-lg mx-auto home-nav-button">Spells</button>
-            <button class="col-md-4 btn-lg mx-auto home-nav-button">Tools</button>
-            <button class="col-md-4 btn-lg mx-auto home-nav-button">Journal</button>
+            <a href="{{ url_for('site.dieties') }}" 
+                class="btn col-md-4 btn-lg mx-auto home-nav-button" 
+                role="button">
+                Dieties</a>
+            <a href="{{ url_for('site.holidays') }}" 
+                class="btn col-md-4 btn-lg mx-auto home-nav-button" 
+                role="button">
+                Holidays</a>
+            <a href="{{ url_for('site.ceremonies') }}" 
+                class="btn col-md-4 btn-lg mx-auto home-nav-button" 
+                role="button">
+                Ceremonies</a>
+            <a href="{{ url_for('site.symbols') }}" 
+                class="btn col-md-4 btn-lg mx-auto home-nav-button" 
+                role="button">
+                Symbols</a>
+            <a href="{{ url_for('site.herbs') }}" 
+                class="btn col-md-4 btn-lg mx-auto home-nav-button" 
+                role="button">
+                Herbs</a>
+            <a href="{{ url_for('site.spells') }}" 
+                class="btn col-md-4 btn-lg mx-auto home-nav-button" 
+                role="button">
+                Spells</a>
+            <a href="{{ url_for('site.tools') }}" 
+                class="btn col-md-4 btn-lg mx-auto home-nav-button" 
+                role="button">
+                Tools</a>
+            <a href="{{ url_for('site.journal') }}" 
+                class="btn col-md-4 btn-lg mx-auto home-nav-button" 
+                role="button">
+                Journal</a>
         </div>
     </div>
 </section>
