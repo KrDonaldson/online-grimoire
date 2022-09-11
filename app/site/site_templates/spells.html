@@ -2,15 +2,32 @@
 
 {% block content %}
 
-<section>
-    <div class="container my-md-5">
-        <div class="row">
-            <div class="d-md-flex">
-                <h1 class="col text-center pb-5 fs-1">Spells</h1>
+{% if current_user.is_authenticated %}
+
+    <section>
+        <div class="container my-md-5">
+            <div class="row">
+                <div class="d-md-flex">
+                    <h1 class="col text-center pb-5 fs-1">Spells</h1>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-{% include 'addbutton.html' %}
+    {% include 'addbutton.html' %}
+
+{% else %}
+
+    <section>
+        <div class="container m-5">
+            <div class="d-md-flex">
+                <h1 class="col text-center pb-5 fs-1">
+                    You will need to login to view this content.
+                </h1>
+            </div>
+        </div>
+    </section>
+
+{% endif %}
+
 {% endblock %}
