@@ -1,20 +1,62 @@
-from flask import Blueprint, render_template
-# from forms import UserLoginForm, UserRegisterForm
+from flask import Blueprint, render_template, request, redirect, url_for, flash
+from forms import UserRegisterForm
+from loginforms import UserLoginForm
+from models import User, db, check_password_hash
+from flask_login import login_user, logout_user, LoginManager, current_user, login_required
 
 auth = Blueprint('auth', __name__, template_folder='auth_templates')
 
-@auth.route('/signin')
+@auth.route('/signin', methods = ['GET', 'POST'])
 def signin():
-    # form = UserLoginForm()
-    return render_template('signin.html')
-    # form=form add this after ^
+    form = UserLoginForm()
+    try:
+        if request.method == 'POST' and form.validate_on_submit():
+            username = form.username.data
+            password = form.password.data
+            print(username,password)
 
-@auth.route('/signup')
+            logged_user = User.query.filter(User.username == username).first()
+            if logged_user and check_password_hash(logged_user.password, password):
+                login_user(logged_user)
+                flash('You have successfully signed in')
+                return redirect(url_for('site.home'))
+            else:
+                flash('Incorrect username or password')
+                return redirect(url_for('auth.signin'))
+    except:
+        raise Exception('Please check your username and password.')
+
+    return render_template('signin.html', form=form)
+
+@auth.route('/signup', methods = ['GET', 'POST'])
 def signup():
-    # form = UserRegisterForm()
-    return render_template('signup.html')
-    # form=form add this after ^
+    form = UserRegisterForm()
+
+    try:
+        if request.method == 'POST' and form.validate_on_submit():
+            username = form.username.data
+            email = form.email.data
+            password = form.password.data
+            print(email, password)
+
+            user = User(username, email, password = password)
+
+            db.session.add(user)
+            db.session.commit()
+
+
+
+            flash(f'You have successfully created a user account {email}', 'User-created')
+            return redirect(url_for('site.home'))
+    except:
+        raise Exception('Invalid form data: Please check your form')
+    return render_template('signup.html', form=form)
 
 @auth.route('/signout')
 def signout():
     return render_template('signout.html')
+
+@auth.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('auth.signin'))

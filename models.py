@@ -1,4 +1,3 @@
-import email
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import uuid 
@@ -20,18 +19,17 @@ def load_user(user_id):
 class User(db.Model, UserMixin):
     id = db.Column(db.String, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
-    password = db.Column(db.String, nullable=False)
-    email = db.Column(db.String(100), nullable=False, unique=True)
-    account_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    g_auth_verify = db.Column(db.Boolean, default=False)
-    token = db.Column(db.String, default='', unique=True)
+    email = db.Column(db.String(100), nullable = False)
+    password = db.Column(db.String, nullable = True, default = '')
+    g_auth_verify = db.Column(db.Boolean, default = False)
+    token = db.Column(db.String, default = '', unique = True )
+    date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
-    def __init__(self, id, username, password, email, account_created, g_auth_verify, token):
+    def __init__(self, username='',email='', password='', g_auth_verify=False, token=''):
         self.id = self.set_id()
         self.username = username
-        self.password = self.set_password(password)
         self.email = email
-        self.account_created = account_created
+        self.password = self.set_password(password)
         self.g_auth_verify = g_auth_verify
         self.token = self.set_token(24)
 
