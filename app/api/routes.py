@@ -12,8 +12,6 @@ def create_entry(current_user):
     details = request.json['details']
     user_id = current_user.id
 
-    print(f'create journal entry test: {current_user.id}')
-
     entry = Entry(name=name, details=details, user_id=user_id)
 
     db.session.add(entry)
@@ -24,7 +22,7 @@ def create_entry(current_user):
 
 @api.route('/entries', methods = ['GET'])
 @token_required
-def getJournalEntries(current_user):
+def get_entry(current_user):
     a_user = current_user.id
     entry = Entry.query.filter_by(user_id = a_user).all()
     response = entries_schema.dump(entry)
