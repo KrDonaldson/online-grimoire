@@ -252,26 +252,24 @@ class ImpDateSchema(ma.Schema):
 imp_date_schema = ImpDateSchema()
 imp_dates_schema = ImpDateSchema(many=True)
 
-class Journal(db.Model):
+class Entry(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     details = db.Column(db.String(8000), nullable=True)
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.String, db.ForeignKey('user.id'), nullable=False)
 
-    def __init__(self,id, name, details, date_created, user_id):
-        self.id = id
+    def __init__(self, user_id, name='', details=''):
         self.name = name
         self.details = details
-        self.date_created = date_created
         self.user_id = user_id
 
     def __repr__(self):
         return f'{self.name} has been added.'
 
-class JournalSchema(ma.Schema):
+class EntrySchema(ma.Schema):
     class Meta:
         fields = ['id', 'name', 'details', 'date_created', 'user_id']
 
-journal_schema = JournalSchema()
-journals_schema = JournalSchema(many=True)
+entry_schema = EntrySchema()
+entries_schema = EntrySchema(many=True)

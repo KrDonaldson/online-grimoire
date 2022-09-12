@@ -19,6 +19,11 @@
                 <div class="user-details text-center">
                     <div id="user-name">
                         <h4>Name {{username}}</h4>
+                        <li class="list-group-item">Email: {{ current_user.email }}</li>
+                        <li class="list-group-item">Token: {{ current_user.token }} </li>
+                        <li class="list-group-item">id: {{ current_user.id }} </li>
+                        <li class="list-group-item">username: {{ current_user.username }} </li>
+                        <li class="list-group-item">password: {{ current_user.password }} </li>
                     </div>
                 </div>
                 <div class="auth-details">
